@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070914">
+  <meta name="description" content="输入名字，启动赛博人格扫描。领取一份荒诞但莫名贴切的隐藏人设档案。纯本地趣味生成，不收集姓名。">
+  <title>赛博精神病院 · 隐藏人设档案</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23080c1a'/%3E%3Cpath d='M13 32h10l6-13 7 26 6-13h9' stroke='%2379f5ed' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="grid"></div><div class="noise"></div></div>
+  <div class="shell">
+    <header class="topbar"><a href="#home" class="brand" aria-label="返回首页"><span class="brand-mark">∿</span><span>CYBER<span class="brand-dot">/</span>ASYLUM</span></a><span class="top-status"><i></i>系统运行正常<span class="only-wide"> · 大概</span></span></header>
+    <main id="home">
+      <section class="hero" id="intro" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> 宇宙精神状态管理局 · 第 07 号入口</div>
+          <h1 id="hero-title">你的<span class="title-em">隐藏人设</span><br>已被系统盯上。</h1>
+          <p class="lede">输入名字，领走一份荒诞又莫名贴切的人格档案。<br class="only-wide">你的朋友可能比你更想看结果。</p>
+          <div class="meta"><span>◈ 无需登录</span><span>◈ 本地生成</span><span>◈ 适合截图留证</span></div>
+        </div>
+        <div class="scanner-art" aria-hidden="true"><div class="scanner-rings"><div class="ring ring-1"></div><div class="ring ring-2"></div><div class="ring ring-3"></div><div class="scanner-core">?</div><span class="scanner-label label-a">IDENTITY / UNKNOWN</span><span class="scanner-label label-b">SIGNAL 99.8%</span></div></div>
+      </section>
+
+      <section class="terminal" id="terminal" aria-labelledby="terminal-title">
+        <div class="terminal-top"><span><i class="tiny-light"></i> 人格采集终端</span><span>SESSION / 001</span></div>
+        <div class="terminal-body">
+          <div class="section-head"><span class="step">01 / 03</span><h2 id="terminal-title">请提供你的民间代号</h2><p>真名、网名、外号都行。这里不收集，也不保存。</p></div>
+          <label for="name" class="field-label">名字或昵称 <span>最多 16 个字</span></label>
+          <div class="input-wrap"><span class="input-prefix">&gt;</span><input id="name" type="text" maxlength="32" autocomplete="off" enterkeyhint="done" placeholder="比如：宇宙第一深情" aria-describedby="name-error"><span class="input-cursor" aria-hidden="true">_</span></div>
+          <p class="input-error" id="name-error" role="alert" hidden></p>
+
+          <div class="section-head mood-head"><span class="step">02 / 03</span><h2>当前精神状态</h2><p>选最像你的一个，别想太久。</p></div>
+          <div class="moods" role="radiogroup" aria-label="当前精神状态">
+            <button class="mood selected" type="button" role="radio" aria-checked="true" data-mood="robot"><span class="mood-icon">◉</span><span>稳定得像个故障机器人</span><span class="mood-check">✓</span></button>
+            <button class="mood" type="button" role="radio" aria-checked="false" data-mood="ruler"><span class="mood-icon">♛</span><span>今天想统治世界</span><span class="mood-check">✓</span></button>
+            <button class="mood" type="button" role="radio" aria-checked="false" data-mood="air"><span class="mood-icon">⌁</span><span>已经和空气斗智斗勇</span><span class="mood-check">✓</span></button>
+            <button class="mood" type="button" role="radio" aria-checked="false" data-mood="court"><span class="mood-icon">⚖</span><span>表面正常，内心开庭</span><span class="mood-check">✓</span></button>
+            <button class="mood" type="button" role="radio" aria-checked="false" data-mood="sleepy"><span class="mood-icon">☾</span><span>不知道，刚睡醒</span><span class="mood-check">✓</span></button>
+          </div>
+
+          <div class="section-head extra-head"><span class="step">03 / 03 <span class="optional">可跳过</span></span><h2>最近哪件小事最像你？</h2></div>
+          <div class="triggers" role="group" aria-label="最近的小事，可跳过">
+            <button class="trigger" type="button" data-trigger="reply" aria-pressed="false">消息打了又删</button>
+            <button class="trigger" type="button" data-trigger="food" aria-pressed="false">点外卖像做决策题</button>
+            <button class="trigger" type="button" data-trigger="alarm" aria-pressed="false">和闹钟反复谈判</button>
+            <button class="trigger" type="button" data-trigger="money" aria-pressed="false">余额有自己的想法</button>
+            <button class="trigger" type="button" data-trigger="none" aria-pressed="false">以上都是我</button>
+          </div>
+          <button class="primary" id="scan-button" type="button"><span>启动赛博人格扫描</span><span class="primary-arrow">↗</span></button>
+          <p class="fine-print">本作品是趣味文案生成器，不是心理诊断，也未接入实时 AI 推理。</p>
+        </div>
+      </section>
+
+      <section class="result-area" id="result-area" hidden aria-live="polite">
+        <div class="result-intro"><span class="step">DECLASSIFIED / 档案已解封</span><h2>系统终于给你安排了一个身份。</h2><p>科学依据：零。贴切程度：你说了算。</p></div>
+        <article class="dossier" id="dossier" aria-label="隐藏人设结果">
+          <div class="dossier-glow"></div><div class="dossier-head"><div><span class="dossier-logo">∿</span><span>宇宙精神状态管理局</span></div><span class="serial" id="serial">NO. 000000</span></div>
+          <div class="dossier-main"><span class="file-tag">TOP SECRET / 人设档案</span><div class="rarity-line"><span class="rarity" id="rarity">稀有</span><span class="meter-label">异常波动已确认</span></div><p class="dossier-name" id="display-name"></p><h3 id="persona-title"></h3><p class="identity" id="identity"></p>
+            <div class="index-row"><span>精神状态指数</span><strong id="index"></strong></div><div class="meter"><span id="meter-fill"></span></div>
+            <div class="traits"><div class="trait"><span class="trait-label"><i>✦</i> 特殊能力</span><p id="ability"></p></div><div class="trait"><span class="trait-label"><i>◇</i> 致命弱点</span><p id="weakness"></p></div></div>
+            <div class="verdict"><span>宇宙评价 // FINAL VERDICT</span><p id="verdict"></p></div>
+          </div><div class="dossier-foot"><span>SCAN COMPLETE · 本地趣味生成</span><span>CYBER / ASYLUM</span></div>
+        </article>
+        <p class="result-prompt">「我的人格已经被系统封存，你也测测？」</p>
+        <div class="actions"><button class="action main-action" id="image-button" type="button">⬇ 生成结果图片</button><button class="action" id="share-button" type="button">↗ 分享图片</button><button class="action" id="copy-button" type="button">▤ 复制人设文案</button><button class="action" id="reroll-button" type="button">⟳ 重新生成</button><button class="action" id="restart-button" type="button">◇ 换个名字重测</button><button class="action" id="link-button" type="button">⌁ 复制邀请链接</button></div>
+        <p class="share-hint">微信内无法自动发朋友圈：先生成图片，长按保存，再从相册分享。</p>
+      </section>
+    </main>
+    <footer class="footer"><span>赛博精神病院 · 仅供快乐研究</span><span>NO DATA COLLECTED / 2026</span></footer>
+  </div>
+
+  <div class="scan-overlay" id="scan-overlay" hidden role="status" aria-live="polite"><div class="scan-panel"><div class="scan-symbol"><span>∿</span><i></i></div><div class="scan-progress"><span id="scan-percent">0%</span><span>PERSONA SCAN</span></div><div class="progress-track"><i id="progress-fill"></i></div><p id="scan-status">正在检索你的隐藏人格……</p><div class="scan-lines"><span>SYS/07</span><span>请保持抽象</span></div></div></div>
+
+  <div class="image-modal" id="image-modal" hidden role="dialog" aria-modal="true" aria-labelledby="image-title"><div class="image-panel"><div class="image-top"><h2 id="image-title">你的结果图已生成</h2><button id="close-image" type="button" aria-label="关闭图片预览">×</button></div><p>长按图片可保存到相册。也可以点下方按钮下载或分享。</p><img id="export-preview" alt="赛博人格结果图片预览"><div class="image-actions"><button id="download-button" type="button">下载 PNG</button><button id="native-share-button" type="button">分享图片</button></div></div></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
